@@ -15,6 +15,7 @@
     }
   });
 
+
   // Closes responsive menu when a scroll trigger link is clicked
   $('.js-scroll-trigger').click(function () {
     $('.navbar-collapse').collapse('hide');
@@ -25,6 +26,7 @@
     target: '#mainNav',
     offset: 75
   });
+
 
   // Collapse Navbar
   var navbarCollapse = function () {
@@ -39,7 +41,7 @@
 
 
 
-  if (typeof window.orientation == 'undefined') {
+  if (typeof window.orientation == 'undefined' && $(window).width() > 990) {
     // Collapse now if page is not at top
     navbarCollapse();
     // Collapse the navbar when page is scrolled
@@ -48,6 +50,7 @@
   else {
     $(".js-scroll-trigger img").attr("src", "img/logo.png")
   }
+
 
   // Magnific popup calls
   $('#portfolio').magnificPopup({
