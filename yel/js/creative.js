@@ -41,6 +41,7 @@
 
 
 
+
   if (typeof window.orientation == 'undefined' && $(window).width() > 990) {
     // Collapse now if page is not at top
     navbarCollapse();
@@ -66,6 +67,19 @@
     image: {
       tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
     }
+  });
+
+
+  $('.count').each(function () {
+    $(this).prop('Counter', 0).animate({
+      Counter: $(this).text()
+    }, {
+      duration: 1000,
+      easing: 'swing',
+      step: function (now) {
+        $(this).text(Math.ceil(now));
+      }
+    });
   });
 
 })(jQuery); // End of use strict
