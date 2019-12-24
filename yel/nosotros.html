@@ -28,9 +28,9 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="img/logo-white.png" alt=""></a>
+      <a class="navbar-brand js-scroll-trigger" href="index.html"><img src="img/yel_logo_white.svg" width="170" alt=""></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <i class="fas fa-bars text-white"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
@@ -60,9 +60,9 @@
         <div class="col-lg-12 mt-5 d-none d-lg-block">
           <div class="separator mb-5"></div>
         </div>
-        <div class="col-lg-8 text-white">
+        <div class="col-lg-6 text-white">
           <h1>Nosotros</h1>
-          <p class="mb-5">Somos un equipo experimentado con la
+          <p class="mb-5 text-2x">Somos un equipo experimentado con la
             visión puesta en el futuro y el corazón junto 
             a cada cliente</p>
         </div>
@@ -75,8 +75,8 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <h2 class="mt-0 text-uppercase">Conocenos</h2>
-          <hr class="divider light my-4">
+          <h2 class="mt-5 text-uppercase text-center h3 font-700">Conocenos</h2>
+          <hr class="divider my-4 divider-orange">
           <p>
             Nacida en Argentina en el año 2004, <strong>YEL</strong> viene al mundo con la idea de integrarse al mercado de <strong>IT Outsourcing</strong> con la visión diferenciadora de poner todos los esfuerzos en la satisfacción completa de nuestros clientes. Por eso desde el primer día armamos equipos con profesionales locales e internacionales experimentados en <strong>IT Outsourcing</strong>, que nos brindan una mirada ampliada y una perspectiva mucho más abarcativa de las características y posibilidades del mercado.
           </p>
@@ -329,22 +329,39 @@ especializado.
       </div>
       <div class="col-sm-6 bg-dark-grey text-white py-5">
         <div class="container">
-          <div class="col-lg-8">
+          <div class="col-lg-10">
         <h2>Encontranos</h2>
         <p>Actualmente estamos presentes en 3 paises y continuamos expandiéndonos.</p>
         <div class="my-3">
-          <a href="" class="mr-3"><img src="img/arg.png" alt=""></a>
-          <a href="" class="mr-3"><img src="img/uru.png" alt=""></a>
-          <a href="" class="mr-3"><img src="img/mex.png" alt=""></a>
+          <div class="countrySelector active mr-3" data-country="AR"><img src="img/arg.png" alt=""></div>
+          <div class="countrySelector mr-3" data-country="UR"><img src="img/uru.png" alt=""></div>
+          <div class="countrySelector mr-3" data-country="MX"><img src="img/mex.png" alt=""></div>
         </div>
-        <h4 class="mb-3">Argentina</h4>
-        <p class="text-uppercase">Oficina Central</p>
-        <div>Dardo Rocha 2964, B1640FTR Martinez, Buenos Aires</div>
-        <div>011 2033 3400</div>
-        <div class="separator my-3"></div>
-        <p class="text-uppercase">Oficina operativa</p>
-        <div>La Rioja 2011, C1244ABQ CABA</div>
-        <div>011 3998 2100</div>
+        
+        <div class="sucursal sucursal-AR">
+          <h4 class="mb-3">Argentina</h4>
+          <p class="text-uppercase">Oficina Central</p>
+          <div><i class="fas fa-map-marker-alt fa-xs mr-2"></i>Dardo Rocha 2964, B1640FTR Martinez, Buenos Aires</div>
+          <div><i class="fas fa-phone fa-xs mr-2"></i>011 2033 3400</div>
+          <div class="separator my-3"></div>
+          <p class="text-uppercase">Oficina operativa</p>
+          <div><i class="fas fa-map-marker-alt fa-xs mr-2"></i>La Rioja 2011, C1244ABQ CABA</div>
+          <div><i class="fas fa-phone fa-xs mr-2"></i>011 3998 2100</div>
+        </div>
+
+        <div class="sucursal sucursal-UR" style="display:none">
+          <h4 class="mb-3">Uruguay</h4>
+          <p class="text-uppercase">Oficina Central</p>
+          <div><i class="fas fa-map-marker-alt fa-xs mr-2"></i>Dardo Rocha 2964, B1640FTR Martinez, Buenos Aires</div>
+          <div><i class="fas fa-phone fa-xs mr-2"></i>011 2033 3400</div>
+        </div>
+
+        <div class="sucursal sucursal-MX" style="display:none">
+          <h4 class="mb-3">México</h4>
+          <p class="text-uppercase">Oficina operativa</p>
+          <div><i class="fas fa-map-marker-alt fa-xs mr-2"></i>La Rioja 2011, C1244ABQ CABA</div>
+          <div><i class="fas fa-phone fa-xs mr-2"></i>011 3998 2100</div>
+        </div>
       </div>
         </div>
       </div>
@@ -352,7 +369,7 @@ especializado.
 
     <div class="container pt-4">
     <div class="row">
-      <div class="col-md-3 mt-2"><img class="mt-1" style="max-width: 100%;" src="img/logo.png" alt=""></div>
+      <div class="col-md-3 mt-2"><img style="max-width: 100%;" src="img/Yel_logo.svg" width="160"></div>
       <div class="col-md-6 mt-5">Copyright © 2019 Todos los derechos reservados ®Yelinformática.com.ar</div>
       <div class="col-md-3 mt-5">Desarrollado por <span class="text-red">ODO </span> Estudios</div>
     </div>
@@ -366,7 +383,7 @@ especializado.
 
   <!-- Plugin JavaScript -->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
 
   <!-- Custom scripts for this template -->
   <script src="js/creative.js"></script>

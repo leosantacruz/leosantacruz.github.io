@@ -32,42 +32,20 @@
   var navbarCollapse = function () {
     if ($("#mainNav").offset().top > 100) {
       $("#mainNav").addClass("navbar-scrolled");
-      $(".js-scroll-trigger img").attr("src", "img/logo.png")
+      $(".js-scroll-trigger img").attr("src", "img/Yel_logo.svg")
+      $(".fa-bars").removeClass("text-white")
     } else {
+      $(".js-scroll-trigger img").attr("src", "img/Yel_logo_white.svg")
       $("#mainNav").removeClass("navbar-scrolled");
-      $(".js-scroll-trigger img").attr("src", "img/logo-white.png")
+      $(".fa-bars").addClass("text-white")
     }
   };
 
 
+  navbarCollapse();
 
-
-  if (typeof window.orientation == 'undefined' && $(window).width() > 990) {
-    // Collapse now if page is not at top
-    navbarCollapse();
-    // Collapse the navbar when page is scrolled
-    $(window).scroll(navbarCollapse);
-  }
-  else {
-    $(".js-scroll-trigger img").attr("src", "img/logo.png")
-  }
-
-
-  // Magnific popup calls
-  $('#portfolio').magnificPopup({
-    delegate: 'a',
-    type: 'image',
-    tLoading: 'Loading image #%curr%...',
-    mainClass: 'mfp-img-mobile',
-    gallery: {
-      enabled: true,
-      navigateByImgClick: true,
-      preload: [0, 1]
-    },
-    image: {
-      tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
-    }
-  });
+  $('body').bind('touchmove', navbarCollapse);
+  $(window).scroll(navbarCollapse);
 
 
   $('.count').each(function () {
@@ -81,5 +59,16 @@
       }
     });
   });
+
+
+  $(".countrySelector").click(function () {
+    $(".countrySelector").removeClass("active")
+    $(this).addClass("active")
+    $(".sucursal").hide()
+
+    let country = $(this).attr("data-country")
+    $(".sucursal-" + country).show()
+
+  })
 
 })(jQuery); // End of use strict

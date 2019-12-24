@@ -28,15 +28,15 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="img/logo-white.png" alt=""></a>
+      <a class="navbar-brand js-scroll-trigger"><img src="img/yel_logo_white.svg" width="170" alt=""></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <i class="fas fa-bars text-white"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
             <div class="dropdown nav-link">
-              <a class="dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 ESP
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -56,16 +56,63 @@
   <!-- Masthead -->
   <header class="masthead h-100">
     <div class="container">
-      <div class="row  align-items-center justify-content-center">
+      <div class="row  align-items-center">
+        
         <div class="col-lg-12 mt-5 align-self-end text-white d-none d-lg-block">
           <div class="separator mb-5"></div>
-          <small>NOSOTROS</small>
-          <h1>Contactados,</br> siempre</h1>
-          <p class="mb-5">Estamos con vos. </br>
-          Vayas a donde vayas</p>
-          <div>
-            <a href="nosotros.html" class="btn btn-main">Conocenos</a>
+        </div>
+
+        <div class="col-lg-6 align-self-end text-white">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+
+              <!-- ITEM 1 -->
+              <div class="carousel-item active">
+                <small>NOSOTROS</small>
+                <h1>Contactados,</br> siempre</h1>
+                <p class="mb-5 text-2x">Estamos con vos. </br>
+                Vayas a donde vayas</p>
+                <div>
+                  <a href="nosotros.html" class="btn btn-main">Conocenos</a>
+                </div>
+              </div>
+
+              <!-- ITEM 2 -->
+              <div class="carousel-item">
+                <small>¿POR QUÉ YEL?</small>
+                <h1>Somos lo que
+                 </br> hacemos</h1>
+                <p class="mb-5 text-2x">Y todo lo hacemos</br>
+                  pensando en vos.</p>
+                <div>
+                  <a href="porque.html" class="btn btn-main">Decubrinos</a>
+                </div>
+              </div>
+              
+              <!-- ITEM 3 -->
+              <div class="carousel-item">
+                <small>ISO</small>
+                <h1>Certificación</br>
+                  ISO 20000-1:2011</h1>
+                <p class="mb-5 text-2x">Evolución permanente para</br>
+                  mejorar tu experiencia.</p>
+                <div>
+                  <a href="certificacion.html" class="btn btn-main">Informate</a>
+                </div>
+              </div>
+            </div>
+
+            <ol class="carousel-indicators" id="carousel-home">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+
           </div>
+
+
+
+
         </div>
       </div>
     </div>
@@ -242,22 +289,39 @@
       </div>
       <div class="col-sm-6 bg-dark-grey text-white py-5">
         <div class="container">
-          <div class="col-lg-8">
+          <div class="col-lg-10">
         <h2>Encontranos</h2>
         <p>Actualmente estamos presentes en 3 paises y continuamos expandiéndonos.</p>
         <div class="my-3">
-          <a href="" class="mr-3"><img src="img/arg.png" alt=""></a>
-          <a href="" class="mr-3"><img src="img/uru.png" alt=""></a>
-          <a href="" class="mr-3"><img src="img/mex.png" alt=""></a>
+          <div class="countrySelector active mr-3" data-country="AR"><img src="img/arg.png" alt=""></div>
+          <div class="countrySelector mr-3" data-country="UR"><img src="img/uru.png" alt=""></div>
+          <div class="countrySelector mr-3" data-country="MX"><img src="img/mex.png" alt=""></div>
         </div>
-        <h4 class="mb-3">Argentina</h4>
-        <p class="text-uppercase">Oficina Central</p>
-        <div>Dardo Rocha 2964, B1640FTR Martinez, Buenos Aires</div>
-        <div>011 2033 3400</div>
-        <div class="separator my-3"></div>
-        <p class="text-uppercase">Oficina operativa</p>
-        <div>La Rioja 2011, C1244ABQ CABA</div>
-        <div>011 3998 2100</div>
+        
+        <div class="sucursal sucursal-AR">
+          <h4 class="mb-3">Argentina</h4>
+          <p class="text-uppercase">Oficina Central</p>
+          <div><i class="fas fa-map-marker-alt fa-xs mr-2"></i>Dardo Rocha 2964, B1640FTR Martinez, Buenos Aires</div>
+          <div><i class="fas fa-phone fa-xs mr-2"></i>011 2033 3400</div>
+          <div class="separator my-3"></div>
+          <p class="text-uppercase">Oficina operativa</p>
+          <div><i class="fas fa-map-marker-alt fa-xs mr-2"></i>La Rioja 2011, C1244ABQ CABA</div>
+          <div><i class="fas fa-phone fa-xs mr-2"></i>011 3998 2100</div>
+        </div>
+
+        <div class="sucursal sucursal-UR" style="display:none">
+          <h4 class="mb-3">Uruguay</h4>
+          <p class="text-uppercase">Oficina Central</p>
+          <div><i class="fas fa-map-marker-alt fa-xs mr-2"></i>Dardo Rocha 2964, B1640FTR Martinez, Buenos Aires</div>
+          <div><i class="fas fa-phone fa-xs mr-2"></i>011 2033 3400</div>
+        </div>
+
+        <div class="sucursal sucursal-MX" style="display:none">
+          <h4 class="mb-3">México</h4>
+          <p class="text-uppercase">Oficina operativa</p>
+          <div><i class="fas fa-map-marker-alt fa-xs mr-2"></i>La Rioja 2011, C1244ABQ CABA</div>
+          <div><i class="fas fa-phone fa-xs mr-2"></i>011 3998 2100</div>
+        </div>
       </div>
         </div>
       </div>
@@ -265,7 +329,7 @@
 
     <div class="container pt-4">
     <div class="row">
-      <div class="col-md-3 mt-2"><img class="mt-1" style="max-width: 100%;" src="img/logo.png" alt=""></div>
+      <div class="col-md-3 mt-2"><img style="max-width: 100%;" src="img/Yel_logo.svg" width="160"></div>
       <div class="col-md-6 mt-5">Copyright © 2019 Todos los derechos reservados ®Yelinformática.com.ar</div>
       <div class="col-md-3 mt-5">Desarrollado por <span class="text-red">ODO </span> Estudios</div>
     </div>
@@ -279,7 +343,7 @@
 
   <!-- Plugin JavaScript -->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
 
   <!-- Custom scripts for this template -->
   <script src="js/creative.js"></script>
