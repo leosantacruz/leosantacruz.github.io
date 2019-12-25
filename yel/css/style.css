@@ -6149,7 +6149,7 @@ a.close.disabled {
   background-clip: padding-box;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  opacity: .5;
+  opacity: 0.8;
   transition: opacity 0.6s ease;
 }
 
@@ -10077,7 +10077,7 @@ footer img{
 
 #carousel-home li{
   margin-right: 30px;
-  width: 80px;
+  width: 65px;
 }
 .font-700{
   font-weight: 700;
@@ -10089,4 +10089,24 @@ footer img{
 
 #porque-info{
   background-position: center;
+}
+
+.progress-carousel{
+  margin-top: -1px;
+  height: 4px;
+  width: 65px;
+  background-color: #E1752B;
+  -webkit-animation-name: progress-carousel; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 5s; /* Safari 4.0 - 8.0 */
+  animation-name: progress-carousel;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+}
+@-webkit-keyframes progress-carousel {
+  from {width: 0;}
+  to {width: 65px;}
+}
+@keyframes progress-carousel {
+  from {width: 0;}
+  to {width: 65px;}
 }

@@ -30,14 +30,18 @@
 
   // Collapse Navbar
   var navbarCollapse = function () {
-    if ($("#mainNav").offset().top > 100) {
-      $("#mainNav").addClass("navbar-scrolled");
-      $(".js-scroll-trigger img").attr("src", "img/Yel_logo.svg")
-      $(".fa-bars").removeClass("text-white")
-    } else {
-      $(".js-scroll-trigger img").attr("src", "img/Yel_logo_white.svg")
-      $("#mainNav").removeClass("navbar-scrolled");
-      $(".fa-bars").addClass("text-white")
+
+
+    if ($('.navbar-toggler.navbar-toggler-right').attr("aria-expanded") == 'false') {
+      if ($("#mainNav").offset().top > 100) {
+        $("#mainNav").addClass("navbar-scrolled");
+        $(".js-scroll-trigger img").attr("src", "img/Yel_logo.svg")
+        $(".fa-bars").removeClass("text-white")
+      } else {
+        $(".js-scroll-trigger img").attr("src", "img/Yel_logo_white.svg")
+        $("#mainNav").removeClass("navbar-scrolled bg-white");
+        $(".fa-bars").addClass("text-white")
+      }
     }
   };
 
@@ -68,6 +72,31 @@
 
     let country = $(this).attr("data-country")
     $(".sucursal-" + country).show()
+
+  })
+
+  //Carousel progress bar
+  $('#carouselExampleIndicators').on('slide.bs.carousel', function (e) {
+    $(document).find(".progress-carousel").remove()
+    $("#carousel-home li[data-slide-to=" + e.to + "]").html('<div class="progress-carousel"></div>')
+  })
+
+  //Responsive menu
+
+  $('.navbar-toggler.navbar-toggler-right').on('click', function () {
+
+
+    if ($("#mainNav").offset().top < 100 && $('.navbar-toggler.navbar-toggler-right').attr("aria-expanded") == 'true') {
+      console.log("entró")
+      $("#mainNav").removeClass("bg-white navbar-scrolled")
+      $(".fa-bars").addClass("text-white")
+      $(".js-scroll-trigger img").attr("src", "img/Yel_logo_white.svg")
+    }
+    else {
+      $("#mainNav").addClass("bg-white")
+      $(".fa-bars").removeClass("text-white")
+      $(".js-scroll-trigger img").attr("src", "img/Yel_logo.svg")
+    }
 
   })
 
