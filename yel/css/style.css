@@ -614,6 +614,11 @@ pre code {
       margin-left: 0!important;
       padding-left: 19px;
     }
+    .cita-right .media-body{
+      text-align: right;
+      margin-right: 0px!important;
+      z-index: 2;
+    }
     .cita .cita-info{
       margin: 0;
     }
