@@ -13,11 +13,9 @@
   <!-- Font Awesome Icons -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  
 
-  <!-- Plugin CSS -->
-  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  
 
   <link href="css/style.css" rel="stylesheet">
 
@@ -28,10 +26,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger"><img src="img/yel_logo_white.svg" width="170" alt=""></a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars text-white"></i>
-      </button>
+      <a href="index.html" class="navbar-brand js-scroll-trigger"><img src="img/yel_logo_white.svg" width="170" alt=""></a>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
@@ -50,6 +45,29 @@
           </li>
         </ul>
       </div>
+      <a class="ml-5 sidebarToggle"><i id="fa-bars-main" class="fas fa-bars text-white"></i></a>
+
+      <div id="sidebar">
+        <a class="sidebarToggle"><i class="fas fa-bars text-black"></i></a>
+
+        <div class="d-lg-none">
+          <div class="dropdown nav-link" style="margin-left:-15px;margin-bottom:20px;padding-bottom:0px">
+            <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ESP
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Español</a>
+              <a class="dropdown-item" href="#">English</a>
+            </div>
+          </div>
+        </div>
+        
+        <a class="d-lg-none" href="https://www.linkedin.com/company/yel-inform-tica-s-a-/?originalSubdomain=ar">Linkedin</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="porque.html">¿Por qué?</a>
+        <a href="certificacion.html">Certificación</a>
+      </div>
+
     </div>
   </nav>
 
@@ -123,7 +141,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="mt-0 text-uppercase">¿Por qué YEL?</h2>
+          <h2 class="mt-0 font-400 text-uppercase">¿Por qué <span class="font-600">YEL?</span></h2>
           <hr class="divider light my-4">
           <p class="mb-5 font-600">Porque YEL es equilibrio. Es poner el foco en nuestros clientes
             y sus necesidades, trabajando junto a ellos de manera integrada, 
@@ -144,23 +162,23 @@
         <img src="img/circle-big.png" alt="" style="position:absolute;top:-80px;left:10%">
         <div class="col-lg-4 col-md-4 text-center">
           <div class="mt-5">
-            <img src="img/icon1.png" class="mb-3">
-            <h3 class="h4 mb-2">IT User Experience Services</h3>
-            <small class="mb-0">Soporte técnico remoto y presencial.</small>
+            <img src="img/icon1.svg" class="mb-3" height="60">
+            <h3 class="h4 mb-2">IT User </br> Experience Services</h3>
+            <p class="mb-0">Soporte técnico remoto y presencial.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 text-center">
           <div class="mt-5">
-            <img src="img/icon2.png" class="mb-3">
-            <h3 class="h4 mb-2">Infrastructure Services</h3>
-            <small class="mb-0">Administración del soporte a servidores y redes.</small>
+            <img src="img/icon2.svg" class="mb-3" height="60">
+            <h3 class="h4 mb-2">Infrastructure </br>Services</h3>
+            <p class="mb-0">Administración del soporte a servidores y redes.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 text-center">
           <div class="mt-5">
-            <img src="img/icon3.png" class="mb-3">
-            <h3 class="h4 mb-2">Operations Management Services</h3>
-            <small class="mb-0">Monitoreo centralizado de plataformas.</small>
+            <img src="img/icon3.svg" class="mb-3" height="60">
+            <h3 class="h4 mb-2">Operations </br>Management Services</h3>
+            <p class="mb-0">Monitoreo centralizado de plataformas.</p>
           </div>
         </div>
 
@@ -261,7 +279,7 @@
         <div class="container">
             <div class="offset-lg-3">
         <h2>Escribinos</h2>
-        Dejanos tu mensaje o consulta y a la brevedad te responderemos
+        Dejanos tu mensaje o consulta y a la brevedad te responderemos.
 
 
         <div class="form-input">
@@ -291,7 +309,7 @@
         <div class="container">
           <div class="col-lg-10">
         <h2>Encontranos</h2>
-        <p>Actualmente estamos presentes en 3 paises y continuamos expandiéndonos.</p>
+        <p>Actualmente estamos presentes en 3 países y continuamos expandiéndonos.</p>
         <div class="my-3">
           <div class="countrySelector active mr-3" data-country="AR"><img src="img/arg.png" alt=""></div>
           <div class="countrySelector mr-3" data-country="UR"><img src="img/uru.png" alt=""></div>
@@ -345,8 +363,8 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
 
-  <!-- Custom scripts for this template -->
-  <script src="js/creative.js"></script>
+  <!-- YEL Scripts-->
+  <script src="js/yel.js"></script>
 
 </body>
 

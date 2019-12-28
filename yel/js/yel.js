@@ -31,18 +31,16 @@
   // Collapse Navbar
   var navbarCollapse = function () {
 
-
-    if ($('.navbar-toggler.navbar-toggler-right').attr("aria-expanded") == 'false') {
-      if ($("#mainNav").offset().top > 100) {
-        $("#mainNav").addClass("navbar-scrolled");
-        $(".js-scroll-trigger img").attr("src", "img/Yel_logo.svg").css('width', "120")
-        $(".fa-bars").removeClass("text-white")
-      } else {
-        $(".js-scroll-trigger img").attr("src", "img/Yel_logo_white.svg").css('width', "170")
-        $("#mainNav").removeClass("navbar-scrolled bg-white");
-        $(".fa-bars").addClass("text-white")
-      }
+    if ($("#mainNav").offset().top > 100) {
+      $("#mainNav").addClass("navbar-scrolled");
+      $(".js-scroll-trigger img").attr("src", "img/Yel_logo.svg").css('width', "120")
+      $("#fa-bars-main").removeClass("text-white")
+    } else {
+      $(".js-scroll-trigger img").attr("src", "img/Yel_logo_white.svg").css('width', "170")
+      $("#mainNav").removeClass("navbar-scrolled bg-white");
+      $("#fa-bars-main").addClass("text-white")
     }
+
   };
 
 
@@ -88,15 +86,20 @@
 
     if ($("#mainNav").offset().top < 100 && $('.navbar-toggler.navbar-toggler-right').attr("aria-expanded") == 'true') {
       $("#mainNav").removeClass("bg-white navbar-scrolled")
-      $(".fa-bars").addClass("text-white")
+      $("#fa-bars-main").addClass("text-white")
       $(".js-scroll-trigger img").attr("src", "img/Yel_logo_white.svg").css('width', "170")
     }
     else {
       $("#mainNav").addClass("bg-white")
-      $(".fa-bars").removeClass("text-white")
+      $("#fa-bars-main").removeClass("text-white")
       $(".js-scroll-trigger img").attr("src", "img/Yel_logo.svg").css('width', "120")
     }
 
+  })
+
+  //SIDEBAR
+  $(".sidebarToggle").click(function () {
+    $("#sidebar").toggleClass("active")
   })
 
 })(jQuery); // End of use strict

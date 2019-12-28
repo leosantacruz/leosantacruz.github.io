@@ -13,11 +13,9 @@
   <!-- Font Awesome Icons -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  
 
-  <!-- Plugin CSS -->
-  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  
 
   <link href="css/style.css" rel="stylesheet">
 
@@ -28,15 +26,12 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="index.html"><img src="img/yel_logo_white.svg" width="170" alt=""></a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars text-white"></i>
-      </button>
+      <a href="index.html" class="navbar-brand js-scroll-trigger"><img src="img/yel_logo_white.svg" width="170" alt=""></a>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
             <div class="dropdown nav-link">
-              <a class="dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 ESP
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -50,6 +45,29 @@
           </li>
         </ul>
       </div>
+      <a class="ml-5 sidebarToggle"><i id="fa-bars-main" class="fas fa-bars text-white"></i></a>
+
+      <div id="sidebar">
+        <a class="sidebarToggle"><i class="fas fa-bars text-black"></i></a>
+
+        <div class="d-lg-none">
+          <div class="dropdown nav-link" style="margin-left:-15px;margin-bottom:20px;padding-bottom:0px">
+            <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ESP
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Español</a>
+              <a class="dropdown-item" href="#">English</a>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.linkedin.com/company/yel-inform-tica-s-a-/?originalSubdomain=ar">Linkedin</a>
+
+        <a href="nosotros.html">Nosotros</a>
+        <a href="porque.html">¿Por qué?</a>
+        <a href="certificacion.html">Certificación</a>
+      </div>
+
     </div>
   </nav>
 
@@ -89,7 +107,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
           <img src="img/circle-small.png" alt="" style="position:absolute;top:-106px;left:100%" class="d-none d-lg-block">
-          <h2 class="mt-5 text-uppercase h3 font-400"><span class="text-orange">YEL</span> EN CIFRAS</h2>
+          <h2 class="mt-5 text-uppercase h3 font-400"><span class="text-orange font-600">YEL</span> EN CIFRAS</h2>
           <hr class="divider my-4 divider-orange">  
           <p class="mb-5 text-left">El trabajo sostenido a lo largo de los años permite que hoy sean las cifras las que demuestran por sí solas todo el esfuerzo y compromiso entregado por el equipo de <strong>YEL</strong> desde el primer día.
           </p>
@@ -264,7 +282,7 @@
         <div class="container">
             <div class="offset-lg-3">
         <h2>Escribinos</h2>
-        Dejanos tu mensaje o consulta y a la brevedad te responderemos
+        Dejanos tu mensaje o consulta y a la brevedad te responderemos.
 
 
         <div class="form-input">
@@ -294,7 +312,7 @@
         <div class="container">
           <div class="col-lg-10">
         <h2>Encontranos</h2>
-        <p>Actualmente estamos presentes en 3 paises y continuamos expandiéndonos.</p>
+        <p>Actualmente estamos presentes en 3 países y continuamos expandiéndonos.</p>
         <div class="my-3">
           <div class="countrySelector active mr-3" data-country="AR"><img src="img/arg.png" alt=""></div>
           <div class="countrySelector mr-3" data-country="UR"><img src="img/uru.png" alt=""></div>
@@ -348,8 +366,8 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
 
-  <!-- Custom scripts for this template -->
-  <script src="js/creative.js"></script>
+  <!-- YEL Scripts-->
+  <script src="js/yel.js"></script>
 
 </body>
 
