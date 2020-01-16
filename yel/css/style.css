@@ -1773,6 +1773,18 @@ pre code {
   .table-responsive-md > .table-bordered {
     border: 0;
   }
+  #perspectivas .card-grey{
+    padding : 1rem
+  }
+  #perspectivas .card-grey .media-body{ 
+    margin-top: 0;
+  }
+
+  #perspectivas .card-grey img{
+    width: 50px;
+    margin-left: -10px;
+    position: absolute;
+  }
 }
 
 @media (max-width: 991.98px) {
@@ -1784,6 +1796,13 @@ pre code {
   }
   .table-responsive-lg > .table-bordered {
     border: 0;
+  }
+  #filosofia-ilustra{
+    margin-top: 0!important;
+    text-align: center!important;
+  }
+  #filosofia-ilustra img{
+    max-width: 200px;
   }
 }
 
@@ -10056,6 +10075,7 @@ box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 .card-grey{
   background-color: #EFEFEF;
   height: 100%;
+  max-height: 115px;
 }
 .card-grey strong{
   font-weight: 600;
@@ -10208,3 +10228,7 @@ footer img{
 }
 
 #perspectivas img{width: 80px;margin-right: 10px;}
+#perspectivas .card-grey{
+  padding : 1.5rem
+}
+#filosofia-ilustra{margin-top:-280px;margin-bottom: -12px;text-align: right;}
