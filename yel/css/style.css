@@ -170,7 +170,7 @@ blockquote {
 
 b,
 strong {
-  font-weight: bolder;
+  font-weight: 600;
 }
 
 small {
@@ -9798,7 +9798,7 @@ header.masthead {
 
 header.masthead h1 {
   font-size: 2.25rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 @media (min-width: 992px) {
