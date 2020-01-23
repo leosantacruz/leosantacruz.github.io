@@ -31,7 +31,7 @@
   // Collapse Navbar
   var navbarCollapse = function () {
 
-    if ($("#mainNav").offset().top > 100) {
+    if ($("#mainNav").offset().top > 1) {
       $("#mainNav").addClass("navbar-scrolled");
       $(".js-scroll-trigger img").attr("src", "img/Yel_logo.svg").css('width', "120")
       $("#fa-bars-main").removeClass("text-white")
@@ -79,12 +79,16 @@
     $("#carousel-home li[data-slide-to=" + e.to + "]").html('<div class="progress-carousel"></div>')
   })
 
+  $('.carousel').carousel({
+    pause: "false"
+  });
+
   //Responsive menu
 
   $('.navbar-toggler.navbar-toggler-right').on('click', function () {
 
 
-    if ($("#mainNav").offset().top < 100 && $('.navbar-toggler.navbar-toggler-right').attr("aria-expanded") == 'true') {
+    if ($("#mainNav").offset().top < 1 && $('.navbar-toggler.navbar-toggler-right').attr("aria-expanded") == 'true') {
       $("#mainNav").removeClass("bg-white navbar-scrolled")
       $("#fa-bars-main").addClass("text-white")
       $(".js-scroll-trigger img").attr("src", "img/Yel_logo_white.svg").css('width', "170")

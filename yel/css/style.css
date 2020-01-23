@@ -605,8 +605,8 @@ pre code {
     max-width: 720px;
   }
   .height50vh{
-    max-height: 70vh!important;
-    min-height: 60vh!important;
+   height: auto
+   
     }
 }
 
@@ -9803,10 +9803,8 @@ header.masthead h1 {
 
 @media (min-width: 992px) {
   header.masthead {
-    height: 100vh;
-    min-height: 40rem;
     padding-top: 72px;
-    padding-bottom: 0;
+    padding-bottom: 30px;
   }
   header.masthead p {
     font-size: 1.15rem;
