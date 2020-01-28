@@ -35,7 +35,7 @@ input{
 <body>
 
     
-<p id="texto">Texto aqui</p>
+<p id="texto" size="4.2" style="">Texto aqui</p>
 <input type="text" id="escribir">
 
     <script src="https://cdn.jsdelivr.net/miq/1.11.0/miq-min.js" integrity="sha384-ImUa755IQNnQYYaUo3+ruuKDnWlc7vZOwof82bWByawbfDXP3e1SDcLsdvNNPcM7" crossorigin="anonymous"></script>
@@ -45,8 +45,20 @@ input{
 var myElement = document.body
 
 var hammertime = new Hammer(myElement);
-hammertime.on('swipe', function(ev) {
-	$("#texto").text("")
+
+hammertime.on('swipeleft', function(ev) {
+    size = parseInt($("#texto").attr("size"))-1;
+    $("#texto").attr("size",size-1)
+    $("#texto").attr("style","font-size:" + size + "em");
+});
+hammertime.on('swiperight', function(ev) {
+    size = parseInt($("#texto").attr("size"))+1;
+    $("#texto").attr("size",size+1)
+    $("#texto").attr("style","font-size:" + size + "em");
+});
+
+hammertime.on('pinch', function(ev) {
+    $("#texto").text("")
     $("#escribir").val("")
 });
 
