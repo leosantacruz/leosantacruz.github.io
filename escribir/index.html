@@ -57,6 +57,7 @@ hammertime.on('swiperight', function(ev) {
     $("#texto").attr("style","font-size:" + size + "em");
 });
 
+hammertime.get('pinch').set({ enable: true });
 hammertime.on('pinch', function(ev) {
     $("#texto").text("")
     $("#escribir").val("")
