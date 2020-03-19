@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coronavirus - Covid19 - Reportes</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      body {
+        background-color: #171d23;
+      }
+      #wrap {
+        width: 400px;
+        background-image: url(images/bg.jpg);
+      }
+
+      .infoGeneral {
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+      .infoGeneral h3 {
+        color: #f1c330;
+        font-size: 35px;
+        text-shadow: 0px 0px 20px rgba(241, 195, 48, 0.5);
+        margin-bottom: 0;
+        font-weight: 500;
+      }
+      .infoGeneral div {
+        font-size: 13px;
+        font-weight: 500;
+        opacity: 0.9;
+        color: #fff;
+      }
+      .source {
+        color: #f1c330;
+        padding-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="container">
+        <div class="row infoGeneral">
+          <div class="col">
+            <h3 id="confirmed">80</h3>
+            <div>Confirmados</div>
+            <div>+15% <small>En 24hs</small></div>
+          </div>
+          <div class="col">
+            <h3 id="recovered">10</h3>
+            <div>Recuperados</div>
+            <div>+10% <small>En 24hs</small></div>
+          </div>
+          <div class="col">
+            <h3 id="deaths">2</h3>
+            <div>Fallecidos</div>
+            <div>+0% <small>En 24hs</small></div>
+          </div>
+        </div>
+        <canvas id="myChart" width="400px" height="400px"></canvas>
+        <div class="row mt-3 source">
+          <div class="col">
+            <small><strong>Fuente</strong> : OMS</small>
+          </div>
+          <strong class="col text-right">@coronabot19</strong>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.csv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+      var ctx = $("#myChart");
+
+      function chart() {
+        var myChart = new Chart(ctx, {
+          type: "line",
+          data: chartData,
+          options: {
+            legend: {
+              display: false
+            },
+
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    fontColor: "rgba(255,255,255,0.8)",
+                    beginAtZero: true
+                  }
+                }
+              ],
+              xAxes: [
+                {
+                  ticks: {
+                    fontColor: "rgba(255,255,255,0.8)"
+                  }
+                }
+              ]
+            }
+          }
+        });
+      }
+
+      let chartData = {
+        labels: [],
+        datasets: [
+          {
+            label: "Argentina",
+            data: [],
+            backgroundColor: [
+              "rgba(55, 60, 101, 0.2)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)"
+            ],
+            borderColor: [
+              "rgba(241, 195, 48, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)"
+            ],
+            borderWidth: 4
+          }
+        ]
+      };
+
+      $.ajax({
+        url:
+          "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-17-2020.csv",
+        async: false,
+        success: function(csvd) {
+          var items = $.csv.toObjects(csvd);
+          var jsonobject = JSON.stringify(items);
+
+          let result = items.filter(r => {
+            return r["Country/Region"] == "Argentina";
+          })[0];
+
+          $("#confirmed").html(result["Confirmed"]);
+          $("#recovered").html(result["Recovered"]);
+          $("#deaths").html(result["Deaths"]);
+        },
+        dataType: "text"
+      });
+
+      fetch("https://pomber.github.io/covid19/timeseries.json")
+        .then(response => response.json())
+        .then(response => {
+          //console.log("cantidad", response["Argentina"].length);
+          response["Argentina"].forEach(
+            ({ date, confirmed, recovered, deaths }, index) => {
+              if (index > response["Argentina"].length - 10) {
+                console.log("entro", date);
+                chartData.labels.push(date);
+                chartData.datasets[0].data.push(confirmed);
+              }
+            }
+          );
+
+          chart(chartData);
+          //console.log(chartData);
+        });
+    </script>
+  </body>
+</html>
