@@ -27,9 +27,9 @@
         text-transform: uppercase;
       }
       .infoGeneral h3 {
-        color: #f1c330;
+        color: rgba(49, 161, 243, 1);
         font-size: 35px;
-        text-shadow: 0px 0px 20px rgba(241, 195, 48, 0.5);
+        text-shadow: 0px 0px 20px rgba(49, 161, 243, 0.25);
         margin-bottom: 0;
         font-weight: 500;
       }
@@ -40,7 +40,7 @@
         color: #fff;
       }
       .source {
-        color: #f1c330;
+        color: rgba(49, 161, 243, 1);
         padding-bottom: 10px;
       }
     </style>
@@ -50,19 +50,17 @@
       <div class="container">
         <div class="row infoGeneral">
           <div class="col">
-            <h3 id="confirmed">80</h3>
+            <h3 id="confirmed"></h3>
             <div>Confirmados</div>
-            <div>+15% <small>En 24hs</small></div>
+            <div>+<span id="variacion">15</span>% <small>En 24hs</small></div>
           </div>
           <div class="col">
-            <h3 id="recovered">10</h3>
+            <h3 id="recovered"></h3>
             <div>Recuperados</div>
-            <div>+10% <small>En 24hs</small></div>
           </div>
           <div class="col">
-            <h3 id="deaths">2</h3>
+            <h3 id="deaths"></h3>
             <div>Fallecidos</div>
-            <div>+0% <small>En 24hs</small></div>
           </div>
         </div>
         <canvas id="myChart" width="400px" height="400px"></canvas>
@@ -128,7 +126,7 @@
               "rgba(255, 255, 255, 1)"
             ],
             borderColor: [
-              "rgba(241, 195, 48, 1)",
+              "rgba(49, 161, 243, 1)",
               "rgba(255, 255, 255, 1)",
               "rgba(255, 255, 255, 1)",
               "rgba(255, 255, 255, 1)",
@@ -165,10 +163,10 @@
       fetch("https://pomber.github.io/covid19/timeseries.json")
         .then(response => response.json())
         .then(response => {
-          //console.log("cantidad", response["Argentina"].length);
+          let amount = response["Argentina"].length;
           response["Argentina"].forEach(
             ({ date, confirmed, recovered, deaths }, index) => {
-              if (index > response["Argentina"].length - 10) {
+              if (index > amount - 10) {
                 console.log("entro", date);
                 chartData.labels.push(date);
                 chartData.datasets[0].data.push(confirmed);
@@ -177,6 +175,13 @@
           );
 
           chart(chartData);
+          let variacion = parseInt(
+            (response["Argentina"][amount - 1]["confirmed"] /
+              response["Argentina"][amount - 2]["confirmed"] -
+              1) *
+              100
+          );
+          $("#variacion").html(variacion);
           //console.log(chartData);
         });
     </script>
