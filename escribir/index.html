@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Escribir</title>
+    <style>
+body,html{
+    margin: 0;
+    padding: 10px;
+    padding-bottom: 150px;
+    height: 100%;
+    min-height: 100%;
+    background-color: #000;
+    color:#FFF
+}
+p{
+    padding: 0;
+    margin: 0;
+    font-size: 4.2em;
+}
+input{
+    width:100%;
+    padding: 20px;
+    position:fixed;
+    bottom:0;
+    left: 0;
+}
+    </style>
+
+</head>
+
+<body>
+
+    
+<p id="texto" size="4.2" style="">Texto aqui</p>
+<input type="text" id="escribir">
+
+    <script src="https://cdn.jsdelivr.net/miq/1.11.0/miq-min.js" integrity="sha384-ImUa755IQNnQYYaUo3+ruuKDnWlc7vZOwof82bWByawbfDXP3e1SDcLsdvNNPcM7" crossorigin="anonymous"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+    <script>
+
+var myElement = document.body
+
+var hammertime = new Hammer(myElement);
+
+hammertime.on('swipeleft', function(ev) {
+    size = parseInt($("#texto").attr("size"))-1;
+    $("#texto").attr("size",size-1)
+    $("#texto").attr("style","font-size:" + size + "em");
+});
+hammertime.on('swiperight', function(ev) {
+    size = parseInt($("#texto").attr("size"))+1;
+    $("#texto").attr("size",size+1)
+    $("#texto").attr("style","font-size:" + size + "em");
+});
+
+hammertime.get('pinch').set({ enable: true });
+hammertime.on('pinch', function(ev) {
+    $("#texto").text("")
+    $("#escribir").val("")
+});
+
+
+    $("#escribir").on("keyup",function(){
+        $("p").text($(this).val())
+    })
+    </script>
+</body>
+</html>
