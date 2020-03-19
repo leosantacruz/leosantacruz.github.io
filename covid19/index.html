@@ -16,13 +16,13 @@
         background-color: #171d23;
       }
       #wrap {
-        width: 400px;
+        width: 450px;
         background-image: url(images/bg.jpg);
       }
 
       .infoGeneral {
         text-align: center;
-        margin-top: 15px;
+        padding-top: 15px;
         margin-bottom: 20px;
         text-transform: uppercase;
       }
@@ -73,9 +73,12 @@
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
     <script src="js/jquery.csv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script>
+      moment.locale("EN");
       var ctx = $("#myChart");
 
       function chart() {
@@ -90,6 +93,9 @@
             scales: {
               yAxes: [
                 {
+                  gridLines: {
+                    color: "rgba(255,255,255,0.1)"
+                  },
                   ticks: {
                     fontColor: "rgba(255,255,255,0.8)",
                     beginAtZero: true
@@ -98,6 +104,9 @@
               ],
               xAxes: [
                 {
+                  gridLines: {
+                    color: "rgba(255,255,255,0.1)"
+                  },
                   ticks: {
                     fontColor: "rgba(255,255,255,0.8)"
                   }
@@ -167,8 +176,7 @@
           response["Argentina"].forEach(
             ({ date, confirmed, recovered, deaths }, index) => {
               if (index > amount - 10) {
-                console.log("entro", date);
-                chartData.labels.push(date);
+                chartData.labels.push(moment(date).format("DD-MM"));
                 chartData.datasets[0].data.push(confirmed);
               }
             }
@@ -182,7 +190,6 @@
               100
           );
           $("#variacion").html(variacion);
-          //console.log(chartData);
         });
     </script>
   </body>
