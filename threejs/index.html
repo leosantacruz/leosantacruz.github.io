@@ -16,13 +16,13 @@
 		
 		<script type="module">
 
-			import * as THREE from "/build/three.module.js";
+			import * as THREE from "/threejs/build/three.module.js";
 
-			import { OrbitControls } from '/examples/jsm/controls/OrbitControls.js';
+			import { OrbitControls } from '/threejs/examples/jsm/controls/OrbitControls.js';
            			
-            import { GLTFLoader } from '/examples/jsm/loaders/GLTFLoader.js';
-			import { RGBELoader } from '/examples/jsm/loaders/RGBELoader.js';
-			import { RoughnessMipmapper } from '/examples/jsm/utils/RoughnessMipmapper.js';
+            import { GLTFLoader } from '/threejs/examples/jsm/loaders/GLTFLoader.js';
+			import { RGBELoader } from '/threejs/examples/jsm/loaders/RGBELoader.js';
+			import { RoughnessMipmapper } from '/threejs/examples/jsm/utils/RoughnessMipmapper.js';
            
            
            
@@ -44,7 +44,7 @@
 
 				new RGBELoader()
 					.setDataType( THREE.UnsignedByteType )
-					.setPath( './textures/' )
+					.setPath( '/threejs/textures/' )
 					.load( 'studio007.hdr', function ( texture ) {
 
 						var envMap = pmremGenerator.fromEquirectangular( texture ).texture;
@@ -62,7 +62,7 @@
 						// use of RoughnessMipmapper is optional
 						var roughnessMipmapper = new RoughnessMipmapper( renderer );
 
-						var loader = new GLTFLoader().setPath( './models/' );
+						var loader = new GLTFLoader().setPath( '/threejs/models/' );
 						loader.load( 'simplicite_baque_accuel_v04.gltf', function ( gltf ) {
 
 							gltf.scene.traverse( function ( child ) {
