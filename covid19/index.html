@@ -50,6 +50,13 @@
         color: rgba(49, 161, 243, 1);
         padding-bottom: 10px;
       }
+
+      #recovered{
+        color:rgb(49, 243, 109)
+      }
+      #deaths{
+        color:#fff
+      }
     </style>
   </head>
   <body>
@@ -80,12 +87,11 @@
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script src="https://momentjs.com/downloads/moment.min.js"></script>
-    <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+
     <script src="js/jquery.csv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script>
-      moment.locale("EN");
+
       var ctx = $("#myChart");
 
       function chart() {
@@ -128,10 +134,39 @@
         labels: [],
         datasets: [
           {
-            label: "Argentina",
+            label: "Recuperados",
             data: [],
             backgroundColor: [
-              "rgba(55, 60, 101, 0.2)",
+              "rgba(49, 243, 109,1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)",
+              "rgba(255, 255, 255, 1)"
+            ],
+            borderColor: [
+              "rgba(49, 161, 243, 0)",
+              "rgba(255, 255, 255, 0)",
+              "rgba(255, 255, 255, 0)",
+              "rgba(255, 255, 255, 0)",
+              "rgba(255, 255, 255, 0)",
+              "rgba(255, 255, 255, 0)",
+              "rgba(255, 255, 255, 0)",
+              "rgba(255, 255, 255, 0)",
+              "rgba(255, 255, 255, 0)",
+              "rgba(255, 255, 255, 0)"
+            ],
+            borderWidth: 4
+          },
+          {
+            label: "Confirmados",
+            data: [],
+            backgroundColor: [
+              "rgba(49, 161, 243, 0.2)",
               "rgba(255, 255, 255, 1)",
               "rgba(255, 255, 255, 1)",
               "rgba(255, 255, 255, 1)",
@@ -159,45 +194,38 @@
         ]
       };
 
-      $.ajax({
-        url:
-          "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-17-2020.csv",
-        async: false,
-        success: function(csvd) {
-          var items = $.csv.toObjects(csvd);
-          var jsonobject = JSON.stringify(items);
 
-          let result = items.filter(r => {
-            return r["Country/Region"] == "Argentina";
-          })[0];
 
-          $("#confirmed").html(result["Confirmed"]);
-          $("#recovered").html(result["Recovered"]);
-          $("#deaths").html(result["Deaths"]);
-        },
-        dataType: "text"
-      });
-
-      fetch("https://pomber.github.io/covid19/timeseries.json")
+      fetch("coronavirus.json")
         .then(response => response.json())
         .then(response => {
-          let amount = response["Argentina"].length;
-          response["Argentina"].forEach(
-            ({ date, confirmed, recovered, deaths }, index) => {
-              if (index > amount - 10) {
-                chartData.labels.push(moment(date).format("DD-MM"));
-                chartData.datasets[0].data.push(confirmed);
-              }
+          //CHART
+          let amount = response.length;
+          response.forEach(
+            (val, index) => {
+              
+              if(index > amount -10 ){
+                chartData.labels.push(val.Fecha);
+                chartData.datasets[0].data.push(val.Recuperados);
+                chartData.datasets[1].data.push(val.Confirmados);
+                }
             }
           );
-
           chart(chartData);
+
+          //INFO
+          $("#confirmed").html(response[amount-1]["Confirmados"]);
+          $("#recovered").html(response[amount-1]["Recuperados"]);
+          $("#deaths").html(response[amount-1]["Muertos"]);
+
+          //VARIATION
           let variacion = parseInt(
-            (response["Argentina"][amount - 1]["confirmed"] /
-              response["Argentina"][amount - 2]["confirmed"] -
+            (response[amount - 1]["Confirmados"] /
+              response[amount - 2]["Confirmados"] -
               1) *
               100
           );
+
           $("#variacion").html(variacion);
         });
     </script>
