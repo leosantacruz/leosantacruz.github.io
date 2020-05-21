@@ -2,155 +2,39 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Quien es mas probable?</title>
+	<title>¿Quién es mas probable que...?</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
 
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 
 	<style>
-	.container{
-		  width: 1200px;
-		  margin:0 auto;
-		  text-align: center;
-		  padding-top: 50px;
-		  	font-family: 'Patrick Hand', cursive;
-
-	}
-
-	#contador{
-		color:#FFF;
-  font-size: 80px;
-  margin-bottom: 50px;
-}
-#pregunta{
-	min-height: 100px;
-	min-width: 800px;
-	display: inline-block;
-	border-radius: 40px;
-	background-color: rgba(0,0,0,0.2);
-	padding: 20px;
-	margin-bottom: 50px;
-	color:#FFF;
-	font-size: 20px;
-	width: 800px;
-}
-
-button{
-		  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-
-}
-
-
+	
 
 	</style>
 </head>
 <body>
 
 
-
-
 <div class="container">
-<div id="pregunta">
-<h1>Quien es más probable...</h1>
-
-</div>
-  <div id="contador">3</div>
-  
-<button id="preguntar">
-  <span>Preguntar</span>
-</button>
-  
+  <div>
+      <img id="logo" src="img/logo.png" width="500px">
   </div>
-
-
+<h2>Elegí un nivel</h2>
+<div id="levelSelector">
+</div>
+  </div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
-		
-let preguntas1 = ["¿Quién es más probable que mate a alguien accidentalmente?",
-"¿Quién es más probable que nunca haya estado en el cine?",
-"¿Quién tiene más probabilidades de convertirse en un famoso actor / actriz?",
-"¿Quién es más probable que huya para unirse al circo?",
-"¿Quién tiene más probabilidades de saltar de un tren en movimiento?",
-"¿Quién es más probable que sea paranoico?",
-"¿Quién es más probable que sea el más atlético?",
-"¿Quién es más probable que vea películas románticas?",
-"¿Quién tiene más probabilidades de convertirse en stripper?",
-"¿Quién tiene más probabilidades de ser detenido por acosar a un policía?",
-"¿Quién es más probable que sea inseguro?",
-"¿Quién probablemente sería arrastrado por un oso?",
-"¿Quién es más probable que sea el más emocional?",
-"¿Quién es más probable que sea un adicto al juego?",
-"¿Quién es más probable que haya sido el primero en besar a un chico / una chica?",
-"¿Quién es más probable que sea el mejor en matemáticas?",
-"¿Quién probablemente sería incómodo en su primera cita?",
-"¿Quién probablemente jugaría en la WNBA?",
-"¿Quién es más probable que tenga éxito como personalidad en el aire?",
-"¿Quién probablemente sería considerada la mujer más poderosa del mundo?",
-"¿Quién es más probable que se encuentre con un fantasma?"]
 
-
-let preguntas3 = ["Listos?","Quien es mas probable que sea mas groso?","Quien es mas probable que cene?","Quien es mas probable que engorde?","Quien es mas probable que se quede dormido en el colectivo?"]
-
-var preguntas = []
-var numero = 0;
-var conteo=3
-var timeout;
-var audio = new Audio('./audio/bell.mp3');
-
-
-
-function traer_preguntas(){
-  $.get("https://spreadsheets.google.com/feeds/cells/17jDqZQxKrcWSjxgPv_MIfhGcWJL7MXY5BWQdiUpsFDE/1/public/full?alt=json").then(function(res){
-    preguntas = res.feed.entry
-    pregunta();
-    //console.log(res.feed.entry[0].content.$t)
-  })
-}
-traer_preguntas();
-
-
-function pregunta(){
-  $("h1").fadeOut(300,function(){
-  $("h1").html(preguntas[numero]["content"]["$t"]).fadeIn(300)	
-  })
-  
+for(i=1;i<16;i++){
+    $("#levelSelector").append(`<div class="btn-circle">${i}</div>`)
 }
 
-
-$("#preguntar").click(function(){
-  clearTimeout(timeout);
- 
-  if(numero != preguntas.length-1){
-  numero++;
-  pregunta();
-
-  conteo = 3;
-  sumar()
-  }
-  else{
-  $("#contador").html("FIN !");
-  $("#preguntar,#pregunta").fadeOut(300,function(){
-
-  })
-  }
+$(document).on("click",".btn-circle",function(){
+    level = localStorage.setItem("level",$(this).html())
+    window.location.href = "jugar.html";
 })
-
-function sumar(){
-      timeout = setTimeout(function(){
-        
-        if(conteo>0){
-            $("#contador").html(conteo--)
-  sumar()        
-          }
-        else{
-          $("#contador").html("YA!")
-		  audio.play();
-        }
-    },1000)
-}
-
-
-
 	</script>
 </body>
 </html>
